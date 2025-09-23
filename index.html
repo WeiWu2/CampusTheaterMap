@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theater Directions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f8f9fa;
+    }
+
+    .map-container {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .map-container img {
+      max-width: 50%;
+      height: auto;
+      border: 2px solid #444;
+      border-radius: 8px;
+    }
+
+    /* Parking Lot Buttons */
+    .marker {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+    }
+    .lot1 { background: #007bff; top: 62%; left: 38%; } /* adjust positions */
+    .lot2 { background: #28a745; top: 66%; left: 48%; }
+    .lot3 { background: #ffc107; top: 74%; left: 48%; }
+    .lot4 { background: #17a2b8; top: 85%; left: 39%; }
+    .handicap { background: #dc3545; top: 95%; left: 50%; }
+
+    #directions-box {
+      margin: 20px auto;
+      padding: 15px;
+      max-width: 500px;
+      border: 2px solid #dc3545;
+      border-radius: 8px;
+      background: #fff;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>College of Staten Island CUNY</h1>
+  <h2>Center for the Arts - 1P</h2>
+  <p>Select a parking lot below to get directions</p>
+
+  <div class="map-container">
+    <!-- Replace with your campus map image -->
+    <img id= "campus-map" src="CampusMap.jpg" alt="Campus Map">
+
+    <!-- Parking lot buttons -->
+    <button class="marker lot1" onclick="openMaps(40.601, -74.152)">Lot 1</button>
+    <button class="marker lot4" onclick="openMaps(40.597648, -74.151570)">Lot 2</button>
+    <button class="marker lot3" onclick="openMaps(40.599085, -74.146651)">Lot 3</button>
+    <button class="marker lot2" onclick="openMaps(40.600588, -74.146565)">Lot 4</button>
+    <button class="marker handicap" onclick="toggleHandicap()">Accessible Parking Directions</button>
+
+  </div>
+
+  <div id="directions-box">
+    <h3>Accessible Parking Directions</h3>
+    <p>1. From the entrance of 1P, follow the road north.<br>
+       2. Turn right onto the campus service road.<br>
+       3. Take the second right turn<br>
+       4. Look for the Accessible Parking marking.</p>
+  </div>
+
+  <script>
+     let handicapMode = false;
+    // Open Google Maps directions
+    function openMaps(lat, lng) {
+      const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+      window.open(url, "_blank");
+    }
+    // Toggle Handicap Route (swap images)
+    function toggleHandicap() {
+      const map = document.getElementById("campus-map");
+      const box = document.getElementById("directions-box");
+
+      if (!handicapMode) {
+        map.src = "CampusMapAccessible.jpg"; // image WITH arrow
+        box.style.display = "block";
+        handicapMode = true;
+      } else {
+        map.src = "CampusMap.jpg"; // normal image
+        box.style.display = "none";
+        handicapMode = false;
+      }
+    }
+  </script>
+
+</body>
+</html>
