@@ -7,50 +7,69 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
       background: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
     }
 
+    h1, h2, p {
+      margin: 5px 0;
+    }
+
+    /* Wrapper for map + directions */
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* Directions box */
+    #directions-box {
+      flex: 1 1 280px;
+      max-width: 400px;
+      padding: 15px;
+      border: 2px solid #dc3545;
+      border-radius: 8px;
+      background: #fff;
+      text-align: left;
+      display: none;
+    }
+
+    /* Map container */
     .map-container {
       position: relative;
-      display: inline-block;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      flex: 1 1 500px;
+      max-width: 700px;
     }
 
     .map-container img {
-      max-width: 50%;
+      width: 100%;
       height: auto;
       border: 2px solid #444;
       border-radius: 8px;
+      display: block;
     }
 
-    /* Parking Lot Buttons */
+    /* Parking Lot Buttons (scale with map) */
     .marker {
       position: absolute;
       transform: translate(-50%, -50%);
-      padding: 8px 12px;
-      border-radius: 8px;
+      padding: clamp(4px, 1vw, 8px) clamp(6px, 2vw, 12px);
+      border-radius: 6px;
       color: white;
-      font-size: 14px;
+      font-size: clamp(10px, 2vw, 14px);
       cursor: pointer;
       border: none;
+      white-space: nowrap;
     }
-    .lot1 { background: #007bff; top: 62%; left: 38%; } /* adjust positions */
+    .lot1 { background: #007bff; top: 62%; left: 38%; }
     .lot2 { background: #28a745; top: 66%; left: 48%; }
     .lot3 { background: #ffc107; top: 74%; left: 48%; }
     .lot4 { background: #17a2b8; top: 85%; left: 39%; }
     .handicap { background: #dc3545; top: 95%; left: 50%; }
-
-    #directions-box {
-      margin: 20px auto;
-      padding: 15px;
-      max-width: 500px;
-      border: 2px solid #dc3545;
-      border-radius: 8px;
-      background: #fff;
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -59,46 +78,53 @@
   <h2>Center for the Arts - 1P</h2>
   <p>Select a parking lot below to get directions</p>
 
-  <div class="map-container">
-    <!-- Replace with your campus map image -->
-    <img id= "campus-map" src="CampusMap.jpg" alt="Campus Map">
+  <div class="content-wrapper">
+    <!-- Directions box -->
+    <div id="directions-box">
+      <h3>Accessible Parking Directions</h3>
+      <p>1. From the entrance of 1P, follow the road north.<br>
+         2. Turn right onto the campus service road.<br>
+         3. Take the second right turn.<br>
+         4. Look for the Accessible Parking marking.</p>
+    </div>
 
-    <!-- Parking lot buttons -->
-    <button class="marker lot1" onclick="openMaps(40.601, -74.152)">Lot 1</button>
-    <button class="marker lot4" onclick="openMaps(40.597648, -74.151570)">Lot 2</button>
-    <button class="marker lot3" onclick="openMaps(40.599085, -74.146651)">Lot 3</button>
-    <button class="marker lot2" onclick="openMaps(40.600588, -74.146565)">Lot 4</button>
-    <button class="marker handicap" onclick="toggleHandicap()">Accessible Parking Directions</button>
+    <!-- Map container -->
+    <div class="map-container">
+      <img id="campus-map" src="CampusMap.jpg" alt="Campus Map">
 
-  </div>
-
-  <div id="directions-box">
-    <h3>Accessible Parking Directions</h3>
-    <p>1. From the entrance of 1P, follow the road north.<br>
-       2. Turn right onto the campus service road.<br>
-       3. Take the second right turn<br>
-       4. Look for the Accessible Parking marking.</p>
+      <!-- Parking lot buttons -->
+      <button class="marker lot1" onclick="openMaps(40.601, -74.152)">Lot 1</button>
+      <button class="marker lot4" onclick="openMaps(40.597648, -74.151570)">Lot 2</button>
+      <button class="marker lot3" onclick="openMaps(40.599085, -74.146651)">Lot 3</button>
+      <button class="marker lot2" onclick="openMaps(40.600588, -74.146565)">Lot 4</button>
+      <button class="marker handicap" onclick="toggleHandicap()">Accessible Parking</button>
+    </div>
   </div>
 
   <script>
-     let handicapMode = false;
+    let handicapMode = false;
+
     // Open Google Maps directions
     function openMaps(lat, lng) {
       const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
       window.open(url, "_blank");
     }
-    // Toggle Handicap Route (swap images)
+
+    // Toggle Accessible Parking Route
     function toggleHandicap() {
       const map = document.getElementById("campus-map");
       const box = document.getElementById("directions-box");
+      const btn = document.querySelector(".handicap");
 
       if (!handicapMode) {
         map.src = "CampusMapAccessible.jpg"; // image WITH arrow
         box.style.display = "block";
+        btn.textContent = "Hide Accessible Parking";
         handicapMode = true;
       } else {
         map.src = "CampusMap.jpg"; // normal image
         box.style.display = "none";
+        btn.textContent = "Accessible Parking";
         handicapMode = false;
       }
     }
