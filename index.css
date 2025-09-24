@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrap map + directions in a flex container for responsiveness */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.map-container {
+  position: relative;
+  display: flex;
+  width: 90%;
+  height: 90%;
+  max-width: 850px; /* scales nicely on desktop */
+  margin: 0.5rem;
+  border: 0.125rem solid #444;
+  border-radius: 0.5rem;
+}
+
+.map-container-img {
+  margin: 1.5rem 0 1.5rem 0;
+  width: 75%; /* Image takes 75% of container */
+  height: auto;
+  display: flex;
+  object-fit: cover;
+}
+.map-container-img img {
+  width: 100%;
+  max-width: 75%;
+  height: auto;
+}
+.map-container-text {
+  position: static; /* Remove absolute positioning */
+  width: 25%; /* Text takes 25% of container */
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  padding: .5rem;
+  margin-right: 1.5rem;
+  background: #fff; /* Optional: background for readability */
+}
+
+/* Markers scale proportionally */
+.lots {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: clamp(2px, 1vw, 6px) clamp(4px, 2vw, 10px); /* scales with viewport */
+  border-radius: 0.5rem;
+  color: white;
+  font-size: clamp(10px, 1.5vw, 14px); /* scales with screen */
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+/* Keep relative % for positions (good for static image map) */
+.lot1 {
+  background: #007bff;
+  top: 64%;
+  left: 20%;
+}
+.lot2 {
+  background: #17a2b8;
+  top: 90%;
+  left: 21%;
+}
+.lot3 {
+  background: #ffc107;
+  top: 77%;
+  left: 41%;
+  padding: clamp(2px, 1vw, 6px) clamp(4px, .2rem, 10px); /* scales with viewport */
+  border-radius: 0.5rem;
+}
+.lot4 {
+  background: #28a745;
+  top: 69%;
+  left: 42%;
+  padding: clamp(2px, 1vw, 6px) clamp(4px, .2rem, 10px); /* scales with viewport */
+}
+.handicap {
+  background: #dc3545;
+}
+
+#directions-box {
+  flex: 1;
+  max-width: 20vw; /* scales instead of fixed 500px */
+  border: 0.125rem solid #dc3545;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: none;
+  text-align: left;
+  margin: 0.5rem;
+}
+.handicap-container {
+  height: 1.5rem;
+  padding-top: .5rem;
+}
