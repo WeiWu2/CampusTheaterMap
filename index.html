@@ -12,20 +12,28 @@
   <h1>College of Staten Island CUNY</h1>
   <h2>Center for the Arts - 1P</h2>
   <p>Select a parking lot below to get directions</p>
+  
   <div class="handicap-container">
       <button class="lots handicap" onclick="toggleHandicap()">Show Accessible Parking Directions</button>
   </div>
+          <!-- Directions box -->
+    <div id="directions-box">
+      <h3>Accessible Parking Directions</h3>
+      <p>1. From the entrance of 1P, follow the road north.<br>
+         2. Turn right onto the campus service road.<br>
+         3. Take the second right turn.<br>
+         4. Look for the Accessible Parking marking.</p>
+    </div>
   <div class="main-container">
     <!-- Map container -->
     <div class="map-container">
-        <div class="map-container-img">
-            <img id="campus-map" src="CampusMapTest2.jpg" alt="Campus Map">
-        </div>
+            <img id="campus-map" src="CampusMapClean.jpg" alt="Campus Map">
       <!-- Parking lot buttons -->
       <button class="lots lot1" onclick="openMaps(40.601, -74.152)">Lot 1</button>
       <button class="lots lot2" onclick="openMaps(40.597648, -74.151570)">Lot 2</button>
       <button class="lots lot3" onclick="openMaps(40.599085, -74.146651)">Lot 3</button>
       <button class="lots lot4" onclick="openMaps(40.600588, -74.146565)">Lot 4</button>
+      <button class="lots main-building" onclick="openMapsMainBuilding()">1P</button>
       <div class="map-container-text">
         <p>Directions from each lot to the Center for the Arts (1P).</p>
         <p>Lot 1: </p>
@@ -34,14 +42,6 @@
         <p>Lot 4: </p>
         <p><strong>Note:</strong> Click the parking lot buttons to open Google Maps for directions to the lot.</p>
       </div>
-    </div>
-        <!-- Directions box -->
-    <div id="directions-box">
-      <h3>Accessible Parking Directions</h3>
-      <p>1. From the entrance of 1P, follow the road north.<br>
-         2. Turn right onto the campus service road.<br>
-         3. Take the second right turn.<br>
-         4. Look for the Accessible Parking marking.</p>
     </div>
   </div>
 

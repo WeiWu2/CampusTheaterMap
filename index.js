@@ -4,6 +4,9 @@ function openMaps(lat, lng) {
   const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
   window.open(url, "_blank");
 }
+function openMapsMainBuilding(){
+  window.open("https://maps.app.goo.gl/wJVP6bemXHRGtQQd6", "_blank");
+}
 
 // Toggle Accessible Parking Route
 function toggleHandicap() {
