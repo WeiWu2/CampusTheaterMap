@@ -20,7 +20,7 @@ function toggleHandicap() {
     btn.textContent = "Hide Accessible Parking Directions";
     handicapMode = true;
   } else {
-    map.src = "CampusMapTest2.jpg"; // normal image
+    map.src = "CampusMapClean.jpg"; // normal image
     box.style.display = "none";
     btn.textContent = "Show Accessible Parking Directions";
     handicapMode = false;
