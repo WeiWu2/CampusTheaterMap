@@ -12,7 +12,7 @@
     <p>Select a parking lot below to get directions</p>
 
     <div class="handicap-container">
-      <button class="lots handicap" onclick="toggleHandicap()">
+      <button class="handicap" onclick="toggleHandicap()">
         Show Accessible Parking Directions
       </button>
     </div>
@@ -30,36 +30,77 @@
     <div class="main-container">
       <!-- Map container -->
       <div class="map-container">
-        <img id="campus-map" src="CampusMapClean.jpg" alt="Campus Map" />
-        <!-- Parking lot buttons -->
-        <button class="lots lot1" onclick="openMaps(40.601, -74.152)">
-          Lot 1
-        </button>
-        <button class="lots lot2" onclick="openMaps(40.597648, -74.151570)">
-          Lot 2
-        </button>
-        <button class="lots lot3" onclick="openMaps(40.599085, -74.146651)">
-          Lot 3
-        </button>
-        <button class="lots lot4" onclick="openMaps(40.600588, -74.146565)">
-          Lot 4
-        </button>
-        <button class="lots main-building" onclick="openMapsMainBuilding()">
-          1P
-        </button>
+        <div>
+          <img id="campus-logo" src="CampusLogo.png" alt="Campus Logo" />
+        </div>
         <div class="map-container-text">
-          <p>Directions from each lot to the Center for the Arts (1P).</p>
+          <p>Additional information about each lot:</p>
           <div class="map-container-text-lots">
-            <p class="map-container-text-lot1">Lot 1:</p>
-            <p class="map-container-text-lot2">Lot 2:</p>
-            <p class="map-container-text-lot3">Lot 3:</p>
-            <p class="map-container-text-lot4">Lot 4:</p>
+            <p class="map-container-text-lot1">
+              Lot 1: Leads to the front entrance, slightly elevated terrain,
+              ~5-minute walk
+            </p>
+            <p class="map-container-text-lot2">
+              Lot 2: Leads to the front entrance, slightly elevated terrain,
+              ~5-minute walk
+            </p>
+            <p class="map-container-text-lot3">
+              Lot 3: Leads to the back entrance, ~5-minute walk
+            </p>
+            <p class="map-container-text-lot4">
+              Lot 4: Leads to the back entrance, ~5-minute walk
+            </p>
           </div>
           <p>
-            <strong>Note:</strong> Click on the parking lot buttons below for Google
-            Maps directions to the lot.
+            <strong>Note:</strong> Click on the parking lot buttons below for
+            Google Maps directions to the lot.
           </p>
         </div>
+        <img id="campus-map" src="CampusMapFinal.png" alt="Campus Map" />
+        <!-- Parking lot buttons -->
+        <svg
+          id="arrow-lot1"
+          class="map-arrow-svg"
+          style="display: none; position: absolute; pointer-events: none"
+        >
+          <defs>
+            <marker
+              id="arrowhead"
+              markerWidth="10"
+              markerHeight="10"
+              refX="8"
+              refY="3.5"
+              orient="auto"
+            >
+              <polygon points="0 0, 10 3.5, 0 7" fill="#ff0000" />
+            </marker>
+          </defs>
+          <line
+            id="arrow-lot1-line"
+            x1="0"
+            y1="0"
+            x2="100"
+            y2="100"
+            stroke="#ff0000"
+            stroke-width="10"
+            marker-end="url(#arrowhead)"
+          />
+        </svg>
+        <button class="lots lot1" onclick="openMaps(40.601, -74.152)" data-target-top="72" data-target-left="51">
+          <strong> Lot 1 </strong>
+        </button>
+        <button class="lots lot2" onclick="openMaps(40.597648, -74.151570)" data-target-top="77" data-target-left="49">
+          <strong> Lot 2 </strong>
+        </button>
+        <button class="lots lot3" onclick="openMaps(40.599085, -74.146651)" data-target-top="76" data-target-left="60">
+          <strong> Lot 3 </strong>
+        </button>
+        <button class="lots lot4" onclick="openMaps(40.600588, -74.146565)" data-target-top="72" data-target-left="60">
+          <strong> Lot 4 </strong>
+        </button>
+        <button class="lots main-building" onclick="openMapsMainBuilding()">
+          <strong> 1P </strong>
+        </button>
       </div>
     </div>
 

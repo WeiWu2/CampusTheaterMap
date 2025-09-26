@@ -10,112 +10,209 @@ body {
   justify-content: center;
 }
 
-/* Wrap map + directions in a flex container for responsiveness */
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
 }
 
 .map-container {
   position: relative;
   display: inline-block;
-  width: 95%;
-  max-width: 1100px;
+  width: 100%;
+  height: auto;
   margin-top: 0.5rem;
   margin-bottom: .5rem;
   border: 0.125rem solid #444;
   border-radius: 0.5rem;
-
+  /* aspect-ratio: 1306 / 1857; Use your map image's width/height */
 }
 
+
+
+
+
+ /* Start of styling for Map container image box */
 .map-container img {
-  
   margin: 1.5rem 0 1.5rem 0;
+  width: 100%;
+  height: auto; 
+ display: block;
+  object-fit: cover; 
+}
+
+/* .campus-map {
+  margin: 1.5rem 0 1.5rem 0;
+  width: 100%;
+  height: auto; 
+  /* display: block; */
+  /* object-fit: cover; 
+} */
+/* .campus-logo{
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-}
+  object-fit: contain;
+
+} */
+
+ /* end of styling for Map container image box */
+
+
+
+
+
+
+
+ /* Start of styling for Map container text box */
+
+
 .map-container-text {
-  position: absolute; 
-  width: 75%; 
-  height: 10%;
+  width: 80%; 
+  height: 12%;
   display: flex;
+  display: inline-block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* overflow: auto; */
+  overflow: auto;
   padding: 0.5rem;
-  top:16%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2em;
+  font-size: 1.4em;
+}
+@media screen and (max-width: 900px) {
+  .map-container-text {
+    font-size: 12px;
+  }
 }
 .map-container-text-lots{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: .5em;
   align-items: flex-start;
+  justify-content: center;
+  margin-right: .5em;
+  margin-left: .5em;
 }
 .map-container-text-lot1{
   color: #007bff;
+  width: 20%;
+    justify-content: center;
 }
 .map-container-text-lot2{
   color: #17a2b8;
+  width: 20%; 
 }
 .map-container-text-lot3{
   color: #ffc107;
+  width: 20%;
 }
 .map-container-text-lot4{
   color: #28a745;
+  width: 20%;
 }
+
+/* End of styling for Map container text box */
+
+
+
+
+
+
+
+ /* Start of styling for Map container lot buttons */
+
 .lots {
   position: absolute;
   transform: translate(-50%, -50%);
-  padding: clamp(2px, 1vw, 6px) clamp(4px, 2vw, 10px); 
+  padding: 6px 10px; 
   border-radius: 0.5rem;
   color: white;
-  font-size: clamp(10px, 1.5vw, 14px);
+  font-size: 30px;
   cursor: pointer;
   border: none;
   white-space: nowrap;
 }
 
 .lot1 {
+  position: absolute;
   background: #007bff;
-  top: 64%;
-  left: 20%;
+  top: 63.3%;
+  left: 37%;
+  padding: 20px 35px; 
 }
 .lot2 {
   background: #17a2b8;
-  top: 90%;
-  left: 21%;
+  top: 91.2%;
+  left: 38%;
+  padding: 20px 35px; 
 }
 .lot3 {
   background: #ffc107;
-  top: 77%;
-  left: 41%;
-  padding: clamp(2px, 1vw, 6px) clamp(4px, 0.2rem, 10px);
-  border-radius: 0.5rem;
+  top: 78%;
+  left: 75.2%;
+   padding: 15px 20px; 
 }
 .lot4 {
   background: #28a745;
-  top: 69%;
-  left: 42%;
-  padding: clamp(2px, 1vw, 6px) clamp(4px, 0.2rem, 10px);
+  top: 68.3%;
+  left: 75.8%;
+  padding: 15px 20px; 
+
 }
 .main-building {
   background: #8c28a7;
-  top: 75%;
-  left: 53%;
-  font-size: 1.1em;
-  padding: clamp(.5em, .5vw, 2em) clamp(.5em, 1.5vw, 2.5em);
+  top: 74.3%;
+  left: 53.4%;
+  padding: 25px 30px;
 }
+.map-arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+@media (max-width: 1300px) {
+  .lot1{
+
+  } 
+  .lot2{
+
+  }
+  .lot3{
+
+  }
+  .lot4{
+
+  }
+  .main-building {
+  }
+}
+
+ /* End of styling for Map container lot buttons */
+
+
+
+
+  /* Start of styling for handicap button and box*/
+
 .handicap {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 6px 10px; 
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
   background: #dc3545;
+  font-size: 1.1em;
 }
 
 #directions-box {
@@ -137,7 +234,7 @@ body {
   text-align: center;
   display: block;
 }
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
   #directions-box {
     width: 90%;
     max-width: 850px;
@@ -149,3 +246,5 @@ body {
   height: 1.5rem;
   padding-top: 0.5rem;
 }
+
+  /* End of styling for handicap button and box*/
