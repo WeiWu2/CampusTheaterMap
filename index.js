@@ -44,6 +44,7 @@ const mapContainer = document.querySelector('.map-container');
 document.querySelectorAll('.lots').forEach(btn => {
   btn.addEventListener('mouseenter', function () {
     // Get button center position
+        if (isMobile()) return; // Disable arrow on mobile
     const btnRect = btn.getBoundingClientRect();
     const mapRect = mapContainer.getBoundingClientRect();
     const btnX = btnRect.left + btnRect.width / 2 - mapRect.left;
@@ -66,6 +67,12 @@ document.querySelectorAll('.lots').forEach(btn => {
   });
 
   btn.addEventListener('mouseleave', function () {
+        if (isMobile()) return; // Disable arrow on mobile
     arrowLot1.style.display = 'none';
   });
 });
+
+
+function isMobile() {
+  return window.innerWidth < 900;
+}

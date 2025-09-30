@@ -177,20 +177,143 @@ body {
   z-index: 20;
   pointer-events: none;
 }
-@media (max-width: 1300px) {
+@media (max-width: 400px) {
   .lot1{
-
+  top: 72%;
+  left: 28%;
+  padding: 5px 15px; 
   } 
   .lot2{
-
+  top: 90%;
+  left: 33%;
+  padding: 10px 10px; 
   }
   .lot3{
-
+  top: 81%;
+  left: 70%;
+  padding: 5px 5px; 
   }
   .lot4{
-
+  top: 76%;
+  left: 70%;
+  padding: 5px 5px; 
   }
   .main-building {
+  top: 78.8%;
+  left: 48%;
+  padding: 15px 15px;
+  }
+}
+@media (min-width: 400px) and (max-width: 429px) {
+  .lot1{
+  top: 70%;
+  left: 26%;
+  padding: 15px 25px; 
+  } 
+  .lot2{
+  top: 90%;
+  left: 30%;
+  padding: 15px 15px; 
+  }
+  .lot3{
+  top: 80.5%;
+  left: 67%;
+  padding: 5px 5px; 
+  }
+  .lot4{
+  top: 74%;
+  left: 68%;
+  padding: 5px 5px; 
+  }
+  .main-building {
+  top: 77.5%;
+  left: 48%;
+  padding: 20px 20px;
+  }
+}
+@media (min-width: 430px) and (max-width: 460px) {
+  .lot1{
+  top: 69%;
+  left: 26%;
+  padding: 25px 30px; 
+  } 
+  .lot2{
+  top: 89%;
+  left: 28.6%;
+  padding: 20px 30px; 
+  }
+  .lot3{
+  top: 80%;
+  left: 67%;
+  padding: 15px 15px; 
+  }
+  .lot4{
+  top: 73.5%;
+  left: 69%;
+  padding: 15px 15px; 
+  }
+  .main-building {
+  top: 76.4%;
+  left: 45%;
+  padding: 30px 30px;
+  }
+}
+@media (max-width: 360px) {
+  .lots{
+    font-size: 45px;
+  }
+  .lot1{
+  top: 69.5%;
+  left: 17%;
+  padding: 20px 40px; 
+  } 
+  .lot2{
+  top: 88%;
+  left: 23%;
+  padding: 20px 20px; 
+  }
+  .lot3{
+  top: 81%;
+  left: 63%;
+  padding: 5px 5px; 
+  }
+  .lot4{
+  top: 74%;
+  left: 63%;
+  padding: 5px 5px; 
+  }
+  .main-building {
+  top: 76.5%;
+  left: 40%;
+  padding: 25px 30px;
+  }
+}
+@media (min-width: 376px) and (max-width: 390px) {
+
+  .lot1{
+  top: 70%;
+  left: 20%;
+  padding: 20px 40px; 
+  } 
+  .lot2{
+  top: 89%;
+  left: 26%;
+  padding: 20px 20px; 
+  }
+  .lot3{
+  top: 81%;
+  left: 67%;
+  padding: 10px 10px; 
+  }
+  .lot4{
+  top: 74.5%;
+  left: 67%;
+  padding: 10px 10px; 
+  }
+  .main-building {
+  top: 77%;
+  left: 44%;
+  padding: 25px 30px;
   }
 }
 
